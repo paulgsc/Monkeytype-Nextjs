@@ -6,9 +6,9 @@
     "typing-app/*"
   ],
   "scripts": {
-    "lint": "turbo run lint --filter=./self-host",
-    "lint:fix": "turbo run lint:fix --filter=./self-host",
-    "typecheck": "turbo run typecheck --filter=./self-host",
+    "lint": "turbo run lint --filter=./typing-app",
+    "lint:fix": "turbo run lint:fix --filter=./typing-app",
+    "typecheck": "turbo run typecheck --filter=./typing-app",
     "prepare": "husky install"
   },
   "author": {
@@ -64,12 +64,16 @@
     "prettier": "^3.3.2",
     "pretty-quick": "^4.0.0",
     "tsx": "^4.15.4",
+    "stylelint-config-standard": "36.0.0",
+    "stylelint-order": "6.0.4",
+    "stylelint-selector-bem-pattern": "4.0.0",
+    "stylelint": "16.6.1",
     "turbo": "^1.13.4",
     "typescript": "^5.4.5"
   },
   "lint-staged": {
-    "self-host/**/*.{js,ts,tsx}": [
-      "eslint --config self-host/.eslintrc.js --fix",
+    "typing-app/**/*.{js,ts,tsx}": [
+      "eslint --config typing-app/.eslintrc.js --fix",
       "prettier --write"
     ]
   }
