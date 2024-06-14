@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Navigate to the subdirectory and run lint-staged
+# cd typing-app && npx lint-staged
+
+# Verify TypeScript files in subdirectories
+cd ..
+# npx tsc --build typing-app/tsconfig.json
