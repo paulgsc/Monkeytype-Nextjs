@@ -1,12 +1,76 @@
 {
-  "name": "Monkeytype-Nextjs",
+  "name": "monkeytype-clone",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "To use in youtube videos.",
+  "workspaces": [
+    "typing-app/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "turbo run lint --filter=./self-host",
+    "lint:fix": "turbo run lint:fix --filter=./self-host",
+    "typecheck": "turbo run typecheck --filter=./self-host",
+    "prepare": "husky install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": {
+    "name": "Paul Mwangi Gathondu",
+    "email": "paulgathondudev@gmail.com",
+    "url": "https://github.com/paulgsc"
+  },
+  "license": "MIT",
+  "keywords": [
+    "Nextjs",
+    "Typing",
+    "Monkeytype"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulgsc/Monkeytype-Nextjs"
+  },
+  "bugs": {
+    "url": "https://github.com/paulgsc/Monkeytype-Nextjs/issues",
+    "email": "paulgathondudev@gmail.com"
+  },
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/pgdev"
+    },
+    {
+      "type": "Buy me a coffee",
+      "url": "https://www.buymeacoffee.com/pgdev"
+    }
+  ],
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "eslint": "^8.41.0",
+    "eslint-config-next": "13.3.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-turbo": "^1.9.9",
+    "eslint-plugin-mdx": "^3.1.5",
+    "eslint-plugin-no-relative-import-paths": "^1.5.4",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-tailwindcss": "^3.12.0",
+    "postcss": "^8.4.24",
+    "pretty-quick": "^4.0.0",
+    "tsx": "^4.1.4",
+    "turbo": "^1.9.9"
+  },
+  "lint-staged": {
+    "self-host/**/*.{js,ts,tsx}": [
+      "eslint --config self-host/.eslintrc.js --fix",
+      "prettier --write"
+    ]
+  }
 }
