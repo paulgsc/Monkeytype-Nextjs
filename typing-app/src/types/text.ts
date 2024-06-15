@@ -5,15 +5,14 @@ import { z } from "zod"
 
 const titleSchema = z.string().min(3).max(16)
 
-const channelNameSchema = z.enum(["variant1", "variant2"])
+const channelNameSchema = z.enum(["NoPayWalls", "lazydev"])
 
 const labelSchema = z.enum([
-  "value1",
-  "value2",
-  "value3",
-  "value4",
-  "value5",
-  "value6",
+  "coding project",
+  "leetcode",
+  "video editing",
+  "math",
+  "rant",
 ])
 
 const contentSchema = z.string()

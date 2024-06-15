@@ -2,8 +2,8 @@
   {
     "id": "1",
     "title": "some title",
-    "channelName": "foo",
-    "label": "documentation",
+    "channelName": "lazydev",
+    "label": "coding project",
     "content": "lorem ipsum..."
   }
 ]

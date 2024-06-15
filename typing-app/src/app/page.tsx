@@ -1,12 +1,12 @@
+import TextInput from "@/components/input"
+import WithTextCard from "@/components/text-ui"
+
 const Home = () => {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      {/* <WithTextCard />
-      <TextInput /> */}
-      <h1 className="text-3xl font-bold">
-        Problem for another day! Time to tame husky!
-      </h1>
-    </main>
+    <figure className=" w-full max-2xl:flex max-2xl:flex-col max-2xl:items-center max-2xl:justify-center 2xl:absolute 2xl:bottom-12 2xl:start-[18%] 2xl:max-w-screen-xl ">
+      <WithTextCard />
+      <TextInput />
+    </figure>
   )
 }
 
