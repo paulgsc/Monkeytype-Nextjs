@@ -1,2 +1,2 @@
 packages:
-  - "typing-app/*"
+  - "apps/typing-app/*"

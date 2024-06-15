@@ -63,17 +63,17 @@
     "postcss": "^8.4.38",
     "prettier": "^3.3.2",
     "pretty-quick": "^4.0.0",
-    "tsx": "^4.15.4",
+    "stylelint": "16.6.1",
     "stylelint-config-standard": "36.0.0",
     "stylelint-order": "6.0.4",
     "stylelint-selector-bem-pattern": "4.0.0",
-    "stylelint": "16.6.1",
+    "tsx": "^4.15.5",
     "turbo": "^1.13.4",
     "typescript": "^5.4.5"
   },
   "lint-staged": {
-    "typing-app/**/*.{js,ts,tsx}": [
-      "eslint --config typing-app/.eslintrc.js --fix",
+    "apps/typing-app/**/*.{js,ts,tsx}": [
+      "eslint --config apps/typing-app/.eslintrc.js --fix",
       "prettier --write"
     ]
   }
