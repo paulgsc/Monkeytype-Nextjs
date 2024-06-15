@@ -1,0 +1,82 @@
+{
+  "name": "monkeytype-clone",
+  "version": "1.0.0",
+  "description": "To use in youtube videos.",
+  "workspaces": [
+    "typing-app/*"
+  ],
+  "author": {
+    "name": "Paul Mwangi Gathondu",
+    "email": "paulgathondudev@gmail.com",
+    "url": "https://github.com/paulgsc"
+  },
+  "license": "MIT",
+  "keywords": [
+    "Nextjs",
+    "Typing",
+    "Monkeytype"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulgsc/Monkeytype-Nextjs"
+  },
+  "bugs": {
+    "url": "https://github.com/paulgsc/Monkeytype-Nextjs/issues",
+    "email": "paulgathondudev@gmail.com"
+  },
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/pgdev"
+    },
+    {
+      "type": "Buy me a coffee",
+      "url": "https://www.buymeacoffee.com/pgdev"
+    }
+  ],
+  "main": "embla-carousel.umd.js",
+  "unpkg": "embla-carousel.umd.js",
+  "module": "./esm/embla-carousel.esm.js",
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "embla-carousel*",
+    "components/**/*",
+    "index.d.ts",
+    "esm/**/*",
+    "cjs/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jest.config.js",
+    "build": "rollup --bundleConfigAsCjs -c",
+    "start": "rollup --bundleConfigAsCjs -c --watch --environment BUILD:development",
+    "eslint:report": "eslint \"src/**/*.{js,tsx,ts}\""
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "2.8.8",
+    "rollup": "^4.18.0",
+    "ts-jest": "^29.1.4",
+    "typescript": "^5.4.5"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./esm/index.d.ts",
+        "default": "./esm/embla-carousel.esm.js"
+      },
+      "require": {
+        "types": "./cjs/index.d.ts",
+        "default": "./cjs/embla-carousel.cjs.js"
+      }
+    }
+  }
+}
