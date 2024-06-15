@@ -1,7 +1,9 @@
-import TestText from "@/components/home-screen"
-
-const Page = () => {
-  return <TestText />
+const Home = () => {
+  return (
+    <main className="flex min-h-screen items-center justify-center">
+      <h1 className="text-5xl font-bold">Next we tame husky!</h1>
+    </main>
+  )
 }
 
-export default Page
+export default Home
