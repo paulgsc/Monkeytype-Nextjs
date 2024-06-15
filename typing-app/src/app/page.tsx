@@ -1,5 +1,7 @@
+import TestText from "@/components/home-screen"
+
 const Page = () => {
-  return <></>
+  return <TestText />
 }
 
 export default Page
