@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1",
+    "title": "some title",
+    "channelName": "foo",
+    "label": "documentation",
+    "content": "lorem ipsum..."
+  }
+]
