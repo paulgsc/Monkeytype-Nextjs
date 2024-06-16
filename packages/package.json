@@ -2,9 +2,6 @@
   "name": "monkeytype-clone",
   "version": "1.0.0",
   "description": "To use in youtube videos.",
-  "workspaces": [
-    "typing-app/*"
-  ],
   "author": {
     "name": "Paul Mwangi Gathondu",
     "email": "paulgathondudev@gmail.com",
@@ -34,49 +31,60 @@
       "url": "https://www.buymeacoffee.com/pgdev"
     }
   ],
-  "main": "embla-carousel.umd.js",
-  "unpkg": "embla-carousel.umd.js",
-  "module": "./esm/embla-carousel.esm.js",
-  "types": "index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "embla-carousel*",
-    "components/**/*",
-    "index.d.ts",
-    "esm/**/*",
-    "cjs/**/*"
+  "workspaces": [
+    "packages/embla-carousel",
+    "packages/embla-carousel-react",
+    "packages/embla-carousel-solid",
+    "packages/embla-carousel-vue",
+    "packages/embla-carousel-svelte",
+    "packages/embla-carousel-docs",
+    "packages/embla-carousel-autoplay",
+    "packages/embla-carousel-auto-scroll",
+    "packages/embla-carousel-auto-height",
+    "packages/embla-carousel-class-names",
+    "packages/embla-carousel-fade",
+    "packages/embla-carousel-reactive-utils",
+    "playgrounds/embla-carousel-playground-vanilla",
+    "playgrounds/embla-carousel-playground-react",
+    "playgrounds/embla-carousel-playground-solid"
   ],
   "scripts": {
-    "test": "jest --config jest.config.js",
-    "build": "rollup --bundleConfigAsCjs -c",
-    "start": "rollup --bundleConfigAsCjs -c --watch --environment BUILD:development",
-    "eslint:report": "eslint \"src/**/*.{js,tsx,ts}\""
+    "eslint:report": "yarn workspaces foreach -v --exclude \"{embla-carousel-monorepo,embla-carousel-playground-vanilla,embla-carousel-playground-react}\" run eslint:report",
+    "prettier:report": "prettier \"**/*.{js,jsx,tsx,ts,scss,json}\" --check",
+    "lint": "npm-run-all prettier:report eslint:report",
+    "format": "prettier \"**/*.{js,jsx,tsx,ts,scss,json}\" --write",
+    "test": "yarn workspaces foreach -v --exclude \"{embla-carousel-monorepo,embla-carousel-playground-vanilla,embla-carousel-playground-react}\" run test",
+    "watch:package-vanilla": "yarn workspace embla-carousel run start",
+    "watch:package-react": "yarn workspace embla-carousel-react run start",
+    "watch:package-solid": "yarn workspace embla-carousel-solid run start",
+    "watch:playground-vanilla": "yarn workspace embla-carousel-playground-vanilla run dev",
+    "watch:playground-react": "yarn workspace embla-carousel-playground-react run dev",
+    "watch:playground-solid": "yarn workspace embla-carousel-playground-solid run dev",
+    "start": "yarn workspace embla-carousel-docs run start",
+    "start:vanilla": "npm-run-all --parallel watch:package-vanilla watch:playground-vanilla",
+    "start:react": "npm-run-all --parallel watch:package-vanilla watch:package-react watch:playground-react",
+    "start:solid": "npm-run-all --parallel watch:package-vanilla watch:package-solid watch:playground-solid",
+    "build": "npm-run-all build:packages build:package-readmes format",
+    "build:packages": "yarn workspaces foreach -vt --exclude \"{embla-carousel-monorepo,embla-carousel-playground-vanilla,embla-carousel-playground-react}\" run build",
+    "build:package-readmes": "npx ts-node --project scripts/tsconfig.node.json scripts/create-readmes/index.ts --templatePath=scripts/create-readmes/readme-template.md",
+    "build:docs": "yarn workspace embla-carousel-docs run predeploy",
+    "version:patch": "yarn workspaces foreach version patch && yarn version:push",
+    "version:minor": "yarn workspaces foreach version minor && yarn version:push",
+    "version:major": "yarn workspaces foreach version major && yarn version:push",
+    "version:create": "git add -A && git commit -m \"$npm_package_version\" && git tag v$npm_package_version",
+    "version:push": "yarn install && yarn version:create && git add -A && git push && git push --tags"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "@babel/core": "7.23.2",
+    "@octokit/types": "^11.1.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "husky": "^4.3.8",
+    "npm-run-all": "^4.1.5",
     "prettier": "2.8.8",
-    "rollup": "^4.18.0",
-    "ts-jest": "^29.1.4",
-    "typescript": "^5.4.5"
-  },
-  "exports": {
-    "./package.json": "./package.json",
-    ".": {
-      "import": {
-        "types": "./esm/index.d.ts",
-        "default": "./esm/embla-carousel.esm.js"
-      },
-      "require": {
-        "types": "./cjs/index.d.ts",
-        "default": "./cjs/embla-carousel.cjs.js"
-      }
-    }
+    "rollup": "^4.1.5",
+    "typescript": "^5.2.2"
   }
 }
